@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const movieRoutes = express.Router();
@@ -11,7 +10,7 @@ console.log(User)
 let Movie = require('./MovieModel');
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 mongoose.connect('mongodb+srv://tamara123:tamara123@cluster0.bsriq.mongodb.net/movieTracker?retryWrites=true&w=majority', { 
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
