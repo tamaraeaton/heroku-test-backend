@@ -6,7 +6,7 @@ const movieRoutes = express.Router();
 const PORT = 8080;
 
 let User = require('./UserModel');
-console.log(User)
+// console.log(User)
 let Movie = require('./MovieModel');
 
 app.use(cors());
@@ -27,7 +27,7 @@ db.once('open', function() {
 });
 
 // Finds all users
-movieRoutes.route('/').get(function (req, res) {
+app.get('/', function (req, res) {
     User.find(function (err, user) {
         if (err) {
             console.log(err)
@@ -36,8 +36,11 @@ movieRoutes.route('/').get(function (req, res) {
         }
     })
 });
-
-// route for login
+// app.get('/', (req, res)=>{
+//     return res.json({
+//         message: 'working'
+//     })
+// })
 movieRoutes.route('/:id').get(function (req, res) {
     let userId = req.params.id;
     User.findById(userId, function (err, user) {
