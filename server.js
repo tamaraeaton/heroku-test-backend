@@ -32,7 +32,7 @@ app.get('/', function (req, res) {
         if (err) {
             console.log(err)
         } else {
-            res.json(user)
+          return res.json(user)
         }
     })
 });
